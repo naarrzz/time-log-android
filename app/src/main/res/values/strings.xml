@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Time Log</string>
+    <string name="widget_name">Time Log timer</string>
+    <string name="widget_description">Running tile, today\'s total and tile shortcuts</string>
+    <string name="widget_idle">Nothing running</string>
+    <string name="widget_today">Today: %1$s</string>
+</resources>

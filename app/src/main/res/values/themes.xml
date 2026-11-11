@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.TimeLog" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/page</item>
+    </style>
+</resources>
