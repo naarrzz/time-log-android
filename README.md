@@ -48,12 +48,16 @@ JAVA_HOME=/opt/homebrew/opt/openjdk@17 ./gradlew assembleDebug lintDebug
 The APK lands in `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Put it on your phone (sideload)
-1. Copy the APK to the phone (Google Drive, USB, or send it to yourself).
-2. Open it from Files. Android asks to allow installs from that app (Chrome, Files, Drive): allow it once.
+No computer, cable, USB debugging or Developer options needed. Everything happens on the phone:
+
+1. On the phone, tap the [Download link](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog-debug.apk) above.
+2. Open the downloaded file. Android asks to allow installs from that app (Chrome or Files): allow it once.
 3. Install, open Time Log, allow notifications, and sign in.
 4. Long-press the home screen > Widgets > Time Log to add the widget.
 
-With USB debugging on, `adb install -r app-debug.apk` works too. Updates install over the old one as long as they're signed with the same debug key (the same Mac).
+To update, download the newer APK and install it over the old one; your login stays. This works as long as both builds are signed with the same debug key (built on the same Mac).
+
+For developers only: with USB debugging on, `adb install -r app-debug.apk` also works.
 
 ## Not done yet
 - Backup download from the page (blob downloads) isn't wired up in the WebView.
