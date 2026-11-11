@@ -2,7 +2,7 @@
 
 A small native shell around the Time Log web app ([live](https://naarrzz.github.io/time-log/) · [source](https://github.com/naarrzz/time-log)). The web app still does all the logging. This adds what a browser tab can't:
 
-- **Live notification:** the running tile as an ongoing notification with a timer, its color, and Stop. On Android 16 it asks to be a Live Update (status bar chip).
+- **Live notification:** the running tile pinned at the top of the shade and on the lock screen, with a ticking timer, its color, and Stop. A small foreground service holds it, so it can't be swiped away and the phone is less likely to kill it. On Android 16 it also asks to be a Live Update (status bar chip).
 - **Home screen widget:** running tile and timer, today's total, and up to 4 tile shortcuts (most used first). "Nothing running" otherwise. Resizable.
 - **Reminders:** a tile still running after 4 hours, and gaps left today at 9 PM. Inexact alarms, so they can be a few minutes late.
 
