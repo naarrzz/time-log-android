@@ -85,23 +85,24 @@ object LiveNotification {
         }
     }
 
+    @Suppress("UNUSED_PARAMETER")
     fun build(context: Context, running: Running, foreground: Boolean): Notification {
         Notifs.ensureChannels(context)
         val color = parseColor(running.color)
-        val onColor = textColorOn(color)
+        val since = "Since " + java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT).format(java.util.Date(running.start))
+        val secondary = if (running.sub.isNullOrBlank()) since else "${running.sub} · $since"
 
         // A real ticking timer in the content, since some phones (ColorOS) show the start time in the header
-        // instead of honoring setUsesChronometer. The tile-colored pill keeps the text readable even where the
-        // phone ignores setColorized.
+        // instead of honoring setUsesChronometer. Not colorized: the tile color is only the thin bar, so the card
+        // matches the system's other notifications and the text keeps the system's contrast.
         val views = RemoteViews(context.packageName, R.layout.notif_running).apply {
-            setInt(R.id.notif_bg, "setColorFilter", color)
-            setTextViewText(R.id.notif_title, running.title)
-            setTextColor(R.id.notif_title, onColor)
+            setInt(R.id.notif_accent, "setColorFilter", color)
+            setTextViewText(R.id.notif_title, running.name)
+            setTextViewText(R.id.notif_sub, secondary)
             setChronometer(
                 R.id.notif_chrono,
                 SystemClock.elapsedRealtime() - (System.currentTimeMillis() - running.start), null, true,
             )
-            setTextColor(R.id.notif_chrono, onColor)
         }
 
         val stop = Notification.Action.Builder(
@@ -113,7 +114,7 @@ object LiveNotification {
         val builder = Notification.Builder(context, Notifs.CHANNEL_RUNNING)
             .setSmallIcon(R.drawable.ic_stat_timer)
             .setContentTitle(running.title)
-            .setContentText("Running")
+            .setContentText(secondary)
             .setStyle(Notification.DecoratedCustomViewStyle())
             .setCustomContentView(views)
             .setWhen(running.start)
@@ -122,7 +123,6 @@ object LiveNotification {
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setColor(color)
-            .setColorized(foreground)   // only allowed for foreground-service notifications
             .setPriority(Notification.PRIORITY_MAX)   // older OEM sorting; channel importance rules on 8.0+
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             .setContentIntent(Notifs.link(context, "timelog://open", 0))
