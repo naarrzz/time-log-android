@@ -9,7 +9,7 @@ A small native shell around the Time Log web app ([live](https://naarrzz.github.
 Not on the Play Store.
 
 ## Download
-**[Download TimeLog-debug.apk](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog-debug.apk)** (latest release, Android 8.0 and up). It's a debug build, so Android will warn that it's from an unknown source. See [Put it on your phone](#put-it-on-your-phone-sideload) below.
+**[Download TimeLog.apk](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog.apk)** (latest release, Android 8.0 and up). It's a debug build, so Android will warn that it's from an unknown source. See [Put it on your phone](#put-it-on-your-phone-sideload) below.
 
 ## Screenshots
 Coming soon. Planned shots (saved in `docs/screenshots/`):
@@ -50,7 +50,7 @@ The APK lands in `app/build/outputs/apk/debug/app-debug.apk`.
 ## Put it on your phone (sideload)
 No computer, cable, USB debugging or Developer options needed. Everything happens on the phone:
 
-1. On the phone, tap the [Download link](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog-debug.apk) above.
+1. On the phone, tap the [Download link](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog.apk) above.
 2. Open the downloaded file. Android asks to allow installs from that app (Chrome or Files): allow it once.
 3. Install, open Time Log, allow notifications, and sign in.
 4. Long-press the home screen > Widgets > Time Log to add the widget.
