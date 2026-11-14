@@ -6,7 +6,7 @@ A small native shell around the Time Log web app ([live](https://naarrzz.github.
 - **Home screen widget:** running tile and timer, today's total, and up to 4 tile shortcuts (most used first). "Nothing running" otherwise. Resizable.
 - **Reminders:** a tile still running after 4 hours, and gaps left today at 9 PM. Inexact alarms, so they can be a few minutes late.
 
-Not on the Play Store.
+Not on the Play Store yet.
 
 ## Download
 <a href="https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog.apk"><img src="https://img.shields.io/badge/Download%20TimeLog.apk-0071E3?style=for-the-badge&logo=android&logoColor=white" alt="Download TimeLog.apk for Android"></a>
