@@ -1,4 +1,4 @@
-# Time Log Android (test build)
+# Time Log Android
 
 A small native shell around the Time Log web app ([live](https://naarrzz.github.io/time-log/) · [source](https://github.com/naarrzz/time-log)). The web app still does all the logging. This adds what a browser tab can't:
 
