@@ -57,10 +57,22 @@ No computer, cable, USB debugging or Developer options needed. Everything happen
 3. Install, open Time Log, allow notifications, and sign in.
 4. Long-press the home screen > Widgets > Time Log to add the widget.
 
+<p>
+<img src="docs/sideload/1-download.png" width="180" alt="Choose where to download TimeLog.apk">
+<img src="docs/sideload/2-downloaded.png" width="180" alt="File downloaded, tap Open">
+<img src="docs/sideload/3-open-with.png" width="180" alt="Open with Package installer">
+<img src="docs/sideload/4-install.png" width="180" alt="Do you want to install this app?">
+</p>
+<p>
+<img src="docs/sideload/5-play-protect.png" width="180" alt="Google Play Protect: More details">
+<img src="docs/sideload/6-install-without-scanning.png" width="180" alt="Install without scanning">
+<img src="docs/sideload/7-installed.png" width="180" alt="App installed, tap Open">
+<img src="docs/sideload/8-notifications.png" width="180" alt="Allow Time Log to send notifications">
+</p>
+
 To update, download the newer APK and install it over the old one; your login stays. This works as long as both builds are signed with the same debug key (built on the same Mac).
 
 For developers only: with USB debugging on, `adb install -r app-debug.apk` also works.
 
 ## Not done yet
 - Backup download from the page (blob downloads) isn't wired up in the WebView.
-- Not tested on a real phone or emulator yet.
