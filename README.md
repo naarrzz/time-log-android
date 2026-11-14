@@ -9,7 +9,9 @@ A small native shell around the Time Log web app ([live](https://naarrzz.github.
 Not on the Play Store.
 
 ## Download
-**[Download TimeLog.apk](https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog.apk)** (latest release, Android 8.0 and up). It's a debug build, so Android will warn that it's from an unknown source. See [Put it on your phone](#put-it-on-your-phone-sideload) below.
+<a href="https://github.com/naarrzz/time-log-android/releases/latest/download/TimeLog.apk"><img src="https://img.shields.io/badge/Download%20TimeLog.apk-0071E3?style=for-the-badge&logo=android&logoColor=white" alt="Download TimeLog.apk for Android"></a>
+
+Latest release, Android 8.0 and up. It's a debug build, so Android will warn that it's from an unknown source. See [Put it on your phone](#put-it-on-your-phone-sideload) below.
 
 ## Screenshots
 Coming soon. Planned shots (saved in `docs/screenshots/`):
