@@ -26,6 +26,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : ComponentActivity() {
     private lateinit var web: WebView
     private var pageReady = false
+    private var healTried = false
     private val queued = mutableListOf<String>()
     private var fileCallback: ValueCallback<Array<Uri>>? = null
 
@@ -84,6 +85,7 @@ class MainActivity : ComponentActivity() {
         web.onResume()
         // Timers pause in the background, so ask the page to report again.
         run("refresh", null)
+        Updater.checkInBackground(this)
     }
 
     override fun onPause() {
@@ -176,10 +178,24 @@ class MainActivity : ComponentActivity() {
             pageReady = true
             queued.forEach { view.evaluateJavascript(it, null) }
             queued.clear()
+            healIfSyncMissing(view)
         }
 
         override fun doUpdateVisitedHistory(view: WebView, url: String?, isReload: Boolean) {
             back.isEnabled = view.canGoBack()
+        }
+    }
+
+    // The Firebase SDK is cached for a year. If a download was cut off, the broken copy keeps coming back and the
+    // page can't log in or sync. When the SDK is missing after a load, clear the web cache (not the logs in local
+    // storage) and load again from the network, once per launch.
+    private fun healIfSyncMissing(view: WebView) {
+        if (healTried) return
+        view.evaluateJavascript("!!(window.firebase && firebase.auth && firebase.firestore)") { result ->
+            if (healTried || result != "false") return@evaluateJavascript
+            healTried = true
+            view.clearCache(true)
+            view.reload()
         }
     }
 

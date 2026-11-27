@@ -2,6 +2,7 @@
 
 A small native shell around the Time Log web app ([live](https://naarrzz.github.io/time-log/) · [source](https://github.com/naarrzz/time-log)). The web app still does all the logging. This adds what a browser tab can't:
 
+- **Updates itself:** tells you when a new TimeLog.apk is out and installs it in two taps.
 - **Live notification:** the running tile pinned at the top of the shade and on the lock screen, with a ticking timer, its color, and Stop. A small foreground service holds it, so it can't be swiped away and the phone is less likely to kill it. On Android 16 it also asks to be a Live Update (status bar chip).
 - **Home screen widget:** running tile and timer, today's total, and up to 4 tile shortcuts (most used first). "Nothing running" otherwise. Resizable.
 - **Reminders:** a tile still running after 4 hours, and gaps left today at 9 PM. Inexact alarms, so they can be a few minutes late.
@@ -70,7 +71,9 @@ No computer, cable, USB debugging or Developer options needed. Everything happen
 <img src="docs/sideload/8-notifications.png" width="180" alt="Allow Time Log to send notifications">
 </p>
 
-To update, download the newer APK and install it over the old one; your login stays. This works as long as both builds are signed with the same debug key (built on the same Mac).
+**Updates (v0.3.0 and up):** the app checks GitHub Releases when you open it, at most every 6 hours. If there's a newer TimeLog.apk it shows **May update!**: tap **Update**, then **Install**. The first time, Android asks to allow installs from Time Log. Your login and logs stay. Android never lets an app from outside the Play Store install itself silently, so those two taps are the minimum. Changes to the web app need no update at all, since the app loads the live site.
+
+You can also download the newer APK yourself and install it over the old one. Either way, every build has to be signed with the same debug key (built on the same Mac), or Android refuses the update.
 
 For developers only: with USB debugging on, `adb install -r app-debug.apk` also works.
 
